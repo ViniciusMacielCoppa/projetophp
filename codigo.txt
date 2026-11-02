@@ -1,0 +1,50 @@
+------------------------------------------------------------------------------------------------------------------------------------
+CODIGO ANTIGO DO ARQUIVO VALIDAÇÃO.PHP
+<?php 
+    require "conexao.php";
+    session_start();
+
+    if(isset($_POST['enviar'])){
+        $nome = trim($_POST['nome']);
+        $senha = trim($_POST['senha']);
+
+        if(!(empty($nome) || empty($senha))){
+            $sql = "SELECT * FROM usuarios WHERE user_name = '$nome' AND user_senha = '$senha'";
+
+            $resultado = mysqli_query($conexao, $sql);
+            $row = mysqli_num_rows($resultado);
+            if($row == 1){
+                $amz = mysqli_fetch_assoc($resultado);
+
+                $_SESSION['nome'] = $amz['user_name'];
+                $_SESSION['status'] = $amz['user_status'];
+                $_SESSION['id'] = $amz['user_id'];
+                $_SESSION['autenticado'] = true;
+
+                header("location: painelHome.php");
+                exit();
+
+            }else{
+                echo "n deu";
+                $_SESSION['autenticado'] = false;
+                // header("location: login.php");
+            }
+        }else{
+            echo "precisa digitar um usuario";
+            $_SESSION['autenticado'] = false;
+            // header("location: login.php");
+        }
+    }else{
+        // header("location: login.php");
+    }
+?>
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

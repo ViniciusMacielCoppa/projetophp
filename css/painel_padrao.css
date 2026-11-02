@@ -1,0 +1,164 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    font-family: 'Roboto Mono', monospace;
+
+    color: rgb(240, 240, 240);
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    background-color: #1E1E1E;
+}
+
+header{
+    width: 100%;
+    height: 10vh;
+
+    background-color: #222222;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+header > h1{
+    color: #919191;
+}
+
+header > div{
+    height: 80%;
+    background-color: #383838;
+    border-radius: 7px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#divheader a{
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    border-radius: 7px;
+    transition: all .2s;
+}
+#divheader a:hover{
+    background-color: rgb(247, 91, 91);
+}
+
+
+main{
+    width: 100%;
+    height: 90vh;
+
+    display: flex;
+    
+}
+
+main > nav{
+    width: 20vw;
+    height: 100%;
+
+    background-color: #111111;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main > nav > p{
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-top: 2px solid #1E1E1E;
+
+    color: rgb(247, 247, 247);
+}
+
+
+
+nav ul{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    /* gap: 50px; */
+}
+
+ul li{
+    width: 100%;
+    height: 7vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+ul li:hover{
+    background-color: #2949a0;
+    transition: all .2s;
+}
+
+ul li > a{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding-left: 20px;
+}
+
+
+ul li > a:first-child{
+    border-bottom: 2px solid #1E1E1E;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+main > div{
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+}
+
+#container{
+    width: 100%;
+    height: 100%;
+
+    background-color: #282A2E;
+    border-radius: 7px;
+    border: 2px solid #333539;
+}

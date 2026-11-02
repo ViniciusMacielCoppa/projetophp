@@ -1,0 +1,16 @@
+{
+    "name": "yiisoft/validator",
+    "description": "composer require yiisoft/validator",
+    "autoload": {
+        "psr-4": {
+            "Yiisoft\\Validator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vinicius Coppa",
+            "email": "viniciuscoppa@gmail.com"
+        }
+    ],
+    "require": {}
+}
