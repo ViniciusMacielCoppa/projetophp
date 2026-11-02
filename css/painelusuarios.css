@@ -1,0 +1,75 @@
+#divmain{
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+#container{
+    padding: 20px;
+
+    gap: 10px;
+}
+
+
+#divmain h1{
+    color: #676767;
+}
+
+#containerForms{
+    width: 100%;
+    height: 5vh;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#containerForms form{
+    height: 100%;
+
+    position: relative;
+}
+
+#containerForms form input, button{
+    height: 100%;
+
+    outline: none;
+}
+
+#containerForms form input{
+    width: 300px;
+    background-color: #282A2E;
+    border-radius: 30px;
+    border: 2px solid #5a5c5f;
+    padding: 0  20px 0 50px;
+    font-size: 18px;
+
+}
+#containerForms form input::placeholder{
+    color: white;
+}
+
+#containerForms form button{
+    background-color: #2e55c0;
+    padding: 0 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all .2s;
+    font-size: 18px;
+}
+#containerForms form button:hover{
+    background-color: #2248b1;
+}
+
+.listra{
+    width: 100%;
+    height: 2px;
+    background-color: #5a5c5f;
+
+    margin: 20px 0;
+}
+
+.filter{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 18px;
+}

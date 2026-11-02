@@ -3,7 +3,7 @@
     session_start();
 
     if(!$_SESSION['usuario']['nome']){
-        header("localtion: login.php");
+        header("location: login.php");
         exit();
     }
 
@@ -21,11 +21,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/painel_padrao.css">
+    <link rel="stylesheet" href="css/painelusuarios.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <title>HOME</title>
+    <title>USUARIOS</title>
 </head>
 <body>
     <header>
@@ -48,8 +49,18 @@
         </nav>
 
         <div id="divmain">
+            <h1>Usuários</h1>
             <div id="container">
-                aqui
+                <div id="containerForms">
+                    <form action="" method="POST">
+                        <input type="text" name="pesquisa" placeholder="filter" maxlength="100">
+                        <i class="fa-solid fa-magnifying-glass filter"></i>
+                    </form>
+                    <form action="">
+                        <button type="submit" name="criarUser">+ Criar novo usuário</button>
+                    </form>
+                </div>
+                <div class="listra"></div>
             </div>
         </div>
     </main>

@@ -23,7 +23,7 @@
         unset($_SESSION['usuario']);
     ?>
     <main>
-        <form action="validacao.php" method="POST">
+        <form action="validacao_login.php" method="POST">
             <input type="text" name="nome" placeholder="Seu usuário">
             <input type="password" name="senha" placeholder="Sua senha">
             <button type="submit" name="enviar">Entrar</button>
