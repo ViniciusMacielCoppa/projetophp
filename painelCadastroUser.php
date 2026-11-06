@@ -1,5 +1,10 @@
 <?php 
     session_start();
+
+    if(!$_SESSION['usuario']['permissoes']['criar usuario']){
+        header('location: painelUsuarios.php');
+        exit();
+    }
     
     if(!$_SESSION['usuario']['autenticado']){
         header("location: login.php");
@@ -23,41 +28,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cadastrar_user.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <form action="painel.php" method="POST">
-        <input type="text" name="name" placeholder="user name">
-        <input type="text" name="password" placeholder="user password">
-        <select name="stats">
-            <option value="1">CEO</option>
-            <option value="2">JORNALISTA</option>
-            <option value="3" selected>STAFF</option>
-        </select>
-        <button type="submit" name="send">Cadastrar</button>
-    </form>
+
+    <main>
+        <div>
+            <h1>Cadastro de usuários</h1>
+            <a href="painelUsuarios.php">Voltar</a>
+        </div>
+
+        <form action="painelCadastroUser.php" method="POST">
+            <input type="text" name="nome" placeholder="User Name">
+            <input type="hidden" name="senhapadrao" value="123456">
+            <select name="status" id="">
+                <option value="1">CEO</option>
+                <option value="2">JORNALISTA</option>
+                <option value="3" select>STAFF</option>
+            </select>
+            <button type="submit" name="send">Cadastrar</button>
+        </form>
+    </main>
 </body>
 </html>
 
-
-
-<!-- apagar dps -->
 <?php 
+
     if(isset($_POST['send'])){
+        $nome = trim($_POST['nome']);
+        $status = $_POST['status'];
 
-            $nome = trim($_POST['name']);
-            $senha = trim($_POST['password']);
-
-            if(!(empty($nome) || empty($senha))){
-                $name = $_POST['name'];
-                $password = $_POST['password'];
-                $stats = $_POST['stats'];
-            
-                $sql = "INSERT INTO usuarios (user_name, user_status, user_senha) VALUES ('$name','$stats','$password')";
-                $resultado = mysqli_query($conexao, $sql);
-                mysqli_close($conexao);
-            }else{
-                echo "tente novamente";
-            }
+        if(!empty($nome)){
+            $sql = "INSERT INTO usuarios (user_name, user_senha, user_status) VALUES ('$nome', '123456', '$status')";
+            $resultado = mysqli_query($conexao, $sql);
+            mysqli_close($conexao);
+            echo "<p class='sucesso'>Usuario cadastrado</p>";
+        }else{
+            echo "<p class='erro'>Digite Algo</p>";
         }
+    }
 ?>

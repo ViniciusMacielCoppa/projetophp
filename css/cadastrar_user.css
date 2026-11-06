@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 20px;
+
+    background-color: rgb(54, 54, 58);
+    color: white;
+}
+
+button{
+    background-color: rgb(147, 164, 221);
+    padding: 5px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+h1{
+    color: rgb(138, 138, 138);
+}
+
+a{
+    color: rgb(232, 233, 236);
+}
+
+.erro{
+    color: red;
+    font-weight: 900;
+    font-size: 18px;
+
+}
+
+.sucesso{
+    color: rgb(36, 153, 0);
+    font-weight: 900;
+    font-size: 18px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+input,select{
+    padding: 5px;
+}
