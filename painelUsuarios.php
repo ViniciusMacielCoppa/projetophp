@@ -42,8 +42,8 @@
     <main>
         <nav>
             <ul>
-                <li><a href=""><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href=""><i class="fa-solid fa-users"></i>Usuários</a></li>
+                <li><a href="painelHome.php"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="painelUsuarios.php"><i class="fa-solid fa-users"></i>Usuários</a></li>
                 <li><a href=""><i class="fa-solid fa-newspaper"></i>Notícias</a></li>
             </ul>
             <p>© Copyright vini259.</p>
