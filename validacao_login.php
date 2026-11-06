@@ -1,12 +1,13 @@
 <?php 
-    require "conexao.php";
     session_start();
-
+    
     if(isset($_POST['enviar'])){
         $nome = trim($_POST['nome']);
         $senha = trim($_POST['senha']);
-
+        
         if(!(empty($nome) || empty($senha))){
+            require "conexao.php";
+            
             $sql = "SELECT * FROM usuarios WHERE user_name = '$nome' AND user_senha = '$senha'";
 
             $resultado = mysqli_query($conexao, $sql);

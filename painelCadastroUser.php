@@ -1,7 +1,20 @@
 <?php 
+    session_start();
+    
+    if(!$_SESSION['usuario']['autenticado']){
+        header("location: login.php");
+        exit();
+    }
     require 'conexao.php';
 
-    session_start();
+    $nome = trim($_SESSION['usuario']['nome']);
+    $id = trim($_SESSION['usuario']['id']);
+
+    if(empty($nome) || empty($id)){
+        header("location: login.php");
+        exit();
+    }
+
 ?>
 
 

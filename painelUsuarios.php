@@ -1,18 +1,19 @@
 <?php 
-    require "conexao.php";
     session_start();
-
-    if(!$_SESSION['usuario']['nome']){
+    
+    if(!$_SESSION['usuario']['autenticado']){
         header("location: login.php");
         exit();
     }
+    require 'conexao.php';
 
     $nome = trim($_SESSION['usuario']['nome']);
     $id = trim($_SESSION['usuario']['id']);
 
     if(empty($nome) || empty($id)){
         header("location: login.php");
-    } 
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -56,9 +57,9 @@
                         <input type="text" name="pesquisa" placeholder="filter" maxlength="100">
                         <i class="fa-solid fa-magnifying-glass filter"></i>
                     </form>
-                    <form action="">
-                        <button type="submit" name="criarUser">+ Criar novo usuário</button>
-                    </form>
+                    <?php if($_SESSION['usuario']['permissoes']['criar usuario']):?>
+                        <a href="painelCadastroUser.php" id="ButtonNew">+ Criar novo usuário</a>
+                    <?php endif; ?>
                 </div>
                 <div class="listra"></div>
             </div>

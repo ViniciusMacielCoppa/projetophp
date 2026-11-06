@@ -28,7 +28,7 @@
     position: relative;
 }
 
-#containerForms form input, button{
+#containerForms form input{
     height: 100%;
 
     outline: none;
@@ -47,7 +47,12 @@
     color: white;
 }
 
-#containerForms form button{
+#ButtonNew{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: #2e55c0;
     padding: 0 20px;
     border-radius: 30px;
@@ -55,7 +60,7 @@
     transition: all .2s;
     font-size: 18px;
 }
-#containerForms form button:hover{
+#ButtonNew:hover{
     background-color: #2248b1;
 }
 
