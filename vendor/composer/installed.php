@@ -3,7 +3,7 @@
         'name' => 'yiisoft/validator',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '82eed443fc5bc1f53f1f03e81e0d73e2850f902e',
+        'reference' => '27c73280ef35105ad0f1180ea810de13d80ce716',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'yiisoft/validator' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '82eed443fc5bc1f53f1f03e81e0d73e2850f902e',
+            'reference' => '27c73280ef35105ad0f1180ea810de13d80ce716',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
