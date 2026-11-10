@@ -62,6 +62,34 @@
                     <?php endif; ?>
                 </div>
                 <div class="listra"></div>
+                <div>
+                    <?php 
+                        if(isset($_POST['pesquisa'])){
+                            $busca = $_POST['pesquisa'];
+                        }else{
+                            $busca = '';
+                        }
+
+                        $sql = "SELECT * FROM usuarios WHERE user_name LIKE '%$busca%' OR user_status LIKE '$busca'";
+
+                        $resultado = mysqli_query($conexao, $sql);
+                        $linhas = mysqli_num_rows($resultado);
+
+
+
+                        for($i=0; $i<$linhas; $i++){
+                            $amz = mysqli_fetch_array($resultado);
+
+                            echo $amz['user_name'];
+                            echo $amz['user_status']."<br>";
+                            echo "<form action='painelusuarios.php' method='POST'>";
+                            echo "<button type='submit' name='enviar'>GERENCIAR</button>";
+                            echo "<input type='hidden' name='id_user' value='".$amz['user_id']."'>";
+                            echo "</form>";
+                        }
+                    
+                    ?>
+                </div>
             </div>
         </div>
     </main>
