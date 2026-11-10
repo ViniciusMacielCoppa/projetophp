@@ -63,6 +63,10 @@
                 </div>
                 <div class="listra"></div>
                 <div>
+                    <div>
+                        <h2>NAME</h2>
+                        <h2>ROLE</h2>
+                    </div>
                     <?php 
                         if(isset($_POST['pesquisa'])){
                             $busca = $_POST['pesquisa'];
