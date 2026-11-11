@@ -46,9 +46,9 @@
             <input type="text" name="nome" placeholder="User Name">
             <input type="hidden" name="senhapadrao" value="123456">
             <select name="status" id="">
-                <option value="1">CEO</option>
-                <option value="2">JORNALISTA</option>
-                <option value="3" select>STAFF</option>
+                <option value="Ceo">CEO</option>
+                <option value="Jornalista">JORNALISTA</option>
+                <option value="Staff" select>STAFF</option>
             </select>
             <button type="submit" name="send">Cadastrar</button>
         </form>
@@ -57,7 +57,6 @@
 </html>
 
 <?php 
-
     if(isset($_POST['send'])){
         $nome = trim($_POST['nome']);
         $status = $_POST['status'];

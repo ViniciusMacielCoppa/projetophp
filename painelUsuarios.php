@@ -63,36 +63,44 @@
                 </div>
                 <div class="listra"></div>
                 <div>
-                    <div>
+                    <div id="containerheader">
                         <h2>NAME</h2>
                         <h2>ROLE</h2>
+                        <?php if($_SESSION['usuario']['permissoes']['gerenciar usuarios']):?>
+                            <h2>ADMINISTRAR</h2>
+                        <?php endif; ?>
                     </div>
-                    <?php 
-                        if(isset($_POST['pesquisa'])){
-                            $busca = $_POST['pesquisa'];
-                        }else{
-                            $busca = '';
-                        }
+                    <div class="listra"></div>
+                        <?php 
+                            if(isset($_POST['pesquisa'])){
+                                $busca = $_POST['pesquisa'];
+                            }else{
+                                $busca = '';
+                            }
 
-                        $sql = "SELECT * FROM usuarios WHERE user_name LIKE '%$busca%' OR user_status LIKE '$busca'";
+                            $sql = "SELECT * FROM usuarios WHERE user_name LIKE '%$busca%' OR user_status LIKE '$busca'";
 
-                        $resultado = mysqli_query($conexao, $sql);
-                        $linhas = mysqli_num_rows($resultado);
+                            $resultado = mysqli_query($conexao, $sql);
+                            $linhas = mysqli_num_rows($resultado);
 
 
 
-                        for($i=0; $i<$linhas; $i++){
-                            $amz = mysqli_fetch_array($resultado);
+                            for($i=0; $i<$linhas; $i++){
+                                $amz = mysqli_fetch_array($resultado);
 
-                            echo $amz['user_name'];
-                            echo $amz['user_status']."<br>";
-                            echo "<form action='painelusuarios.php' method='POST'>";
-                            echo "<button type='submit' name='enviar'>GERENCIAR</button>";
-                            echo "<input type='hidden' name='id_user' value='".$amz['user_id']."'>";
-                            echo "</form>";
-                        }
-                    
-                    ?>
+                                echo "<div id='containerheader'>";
+                                echo "<p>".$amz['user_name']."</p>";
+                                echo "<p>".$amz['user_status']."</p>";
+                                if($_SESSION['usuario']['permissoes']['gerenciar usuarios']){
+                                    echo "<form action='painelusuarios.php' method='POST'>";
+                                    echo "<button type='submit' name='enviar' id='buttonEdit'>GERENCIAR</button>";
+                                    echo "<input type='hidden' name='id_user' value='".$amz['user_id']."'>";
+                                    echo "</form>";
+                                }
+                                echo "</div>";
+                                echo "<div class='listra'></div>";
+                            }
+                        ?>
                 </div>
             </div>
         </div>

@@ -23,36 +23,40 @@
                     'autenticado' => true
                 ];
 
-                if($amz['user_status'] == 1){
+                if($amz['user_status'] == 'Ceo'){
                     $_SESSION['usuario']['permissoes'] = [
                         //por as permições de CEO
                         'criar usuario' => true,
                         'apagar noticias' => true,
-                        'criar noticias' => true
+                        'criar noticias' => true,
+                        'gerenciar usuarios' => true
                     ];
 
                 }
-                elseif($amz['user_status'] == 2){
+                elseif($amz['user_status'] == 'Jornalista'){
                     $_SESSION['usuario']['permissoes'] = [
                         //por as permições de JORNALISTA
                         'criar usuario' => false,
                         'apagar noticias' => true,
-                        'criar noticias' => true
+                        'criar noticias' => true,
+                        'gerenciar usuarios' => false
                     ];
                 }
-                elseif($amz['user_status'] == 3){
+                elseif($amz['user_status'] == 'Staff'){
                     $_SESSION['usuario']['permissoes'] = [
                         //por as permições de STAFF
                         'criar usuario' => false,
                         'apagar noticias' => true,
-                        'criar noticias' => true
+                        'criar noticias' => true,
+                        'gerenciar usuarios' => true
                     ];
                 }
                 else{
                     $_SESSION['usuario']['permissoes'] = [
                     'criar usuario' => false,
                     'apagar noticias' => false,
-                    'criar noticias' => false
+                    'criar noticias' => false,
+                    'gerenciar usuarios' => false
                     ];
                 }
 
