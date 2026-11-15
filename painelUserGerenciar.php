@@ -53,6 +53,8 @@
             $amz = mysqli_fetch_array($resultado);
 
 
+            // SERÁ NECESSARIO CRIAR A OPÇÃO DE EXCLUIR O USUARIO
+
 
             echo"<form action='painelATUALIZARuser.php' method='POST'>";
             echo"<input type='text' name='nome' placeholder='Nome do usuario: ".$amz['user_name']."' value='".$amz['user_name']."'>";

@@ -29,16 +29,16 @@
             exit();
         }
 
-        $nome2 = trim($_POST['nome']);
+        $nome = trim($_POST['nome']);
         $id = $_POST['id'];
         $status = $_POST['status'];
 
         if(!empty($nome)){
             if(isset($_POST['senhapadrao'])){
-                echo $name2;
-            }
-
-
+                }
+                
+                echo $nome;
+                echo $status;
         }
 
 
