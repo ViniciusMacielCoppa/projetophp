@@ -54,6 +54,7 @@
 
 
             // SERÁ NECESSARIO CRIAR A OPÇÃO DE EXCLUIR O USUARIO
+            // TIRAR OS BAGULHO DO ECHO DPS E POR OS CODIGOS SEPARADOS
 
 
             echo"<form action='painelATUALIZARuser.php' method='POST'>";
