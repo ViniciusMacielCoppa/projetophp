@@ -45,7 +45,7 @@
         <form action="painelCadastroUser.php" method="POST">
             <input type="text" name="nome" placeholder="User Name">
             <input type="hidden" name="senhapadrao" value="123456">
-            <select name="status" id="">
+            <select name="status">
                 <option value="Ceo">CEO</option>
                 <option value="Jornalista">JORNALISTA</option>
                 <option value="Staff" select>STAFF</option>

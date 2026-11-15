@@ -92,7 +92,7 @@
                                 echo "<p>".$amz['user_name']."</p>";
                                 echo "<p>".$amz['user_status']."</p>";
                                 if($_SESSION['usuario']['permissoes']['gerenciar usuarios']){
-                                    echo "<form action='painelusuarios.php' method='POST'>";
+                                    echo "<form action='painelUserGerenciar.php' method='POST'>";
                                     echo "<button type='submit' name='enviar' id='buttonEdit'>GERENCIAR</button>";
                                     echo "<input type='hidden' name='id_user' value='".$amz['user_id']."'>";
                                     echo "</form>";
