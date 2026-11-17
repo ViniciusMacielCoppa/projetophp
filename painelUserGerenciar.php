@@ -82,7 +82,7 @@
             echo"</label>";
             echo"<button type='submit' name='atualizar' id='bntatualizar'>Salvar alterações</button>";
             echo"<button type='submit' name='deletuser' id='bntdeletarconta'>Deletar conta</button>";
-            echo"<input type='hidden' name='id' value='".$amz['user_id']."'>";
+            echo"<input readonly type='hidden' name='id' value='".$amz['user_id']."'>";
             echo"</form>";
         ?>   
     </main>
