@@ -22,8 +22,15 @@ body{
     color: white;
 }
 
-button{
+#bntatualizar{
     background-color: rgb(147, 164, 221);
+    padding: 5px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+#bntdeletarconta{
+    background-color: rgb(175, 0, 0);
+    color: white;
     padding: 5px;
     border-radius: 7px;
     cursor: pointer;

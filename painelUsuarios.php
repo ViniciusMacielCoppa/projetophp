@@ -7,10 +7,10 @@
     }
     require 'conexao.php';
 
-    $nome = trim($_SESSION['usuario']['nome']);
-    $id = trim($_SESSION['usuario']['id']);
+    $nomeLogado = trim($_SESSION['usuario']['nome']);
+    $idLogado = trim($_SESSION['usuario']['id']);
 
-    if(empty($nome) || empty($id)){
+    if(empty($nomeLogado) || empty($idLogado)){
         header("location: login.php");
         exit();
     }
@@ -34,7 +34,7 @@
         <h1>Painel HK</h1>
         <div id="divheader">
             <!-- <img src="" alt="foto"> -->
-            <p><?php echo $nome;?></p>
+            <p><?php echo $nomeLogado;?></p>
             <a href="deslogar.php">sair</a>
         </div>
     </header>

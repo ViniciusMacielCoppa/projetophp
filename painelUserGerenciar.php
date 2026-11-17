@@ -12,10 +12,10 @@
     }
     require 'conexao.php';
 
-    $nome = trim($_SESSION['usuario']['nome']);
-    $id = trim($_SESSION['usuario']['id']);
+    $nomeLogado = trim($_SESSION['usuario']['nome']);
+    $idLogado = trim($_SESSION['usuario']['id']);
 
-    if(empty($nome) || empty($id)){
+    if(empty($nomeLogado) || empty($idLogado)){
         header("location: login.php");
         exit();
     }
@@ -45,9 +45,9 @@
         </div>
 
         <?php 
-            $id2 = $_POST['id_user'];
+            $id = $_POST['id_user'];
 
-            $sql = "SELECT * FROM usuarios WHERE user_id = '$id2'";
+            $sql = "SELECT * FROM usuarios WHERE user_id = '$id'";
 
             $resultado = mysqli_query($conexao, $sql);
             $amz = mysqli_fetch_array($resultado);
@@ -80,7 +80,8 @@
             echo"<p>'123456'</p>";
             echo"<input type='checkbox' name='senhapadrao' value='123456'>";
             echo"</label>";
-            echo"<button type='submit' name='atualizar'>Salvar alterações</button>";
+            echo"<button type='submit' name='atualizar' id='bntatualizar'>Salvar alterações</button>";
+            echo"<button type='submit' name='deletuser' id='bntdeletarconta'>Deletar conta</button>";
             echo"<input type='hidden' name='id' value='".$amz['user_id']."'>";
             echo"</form>";
         ?>   
