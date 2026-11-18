@@ -54,7 +54,7 @@
             <div id="container">
                 <div id="containerForms">
                     <form action="" method="POST">
-                        <input type="text" name="pesquisa" placeholder="filter" maxlength="100">
+                        <input type="text" name="pesquisa" placeholder="Filter" maxlength="100">
                         <i class="fa-solid fa-magnifying-glass filter"></i>
                     </form>
                     <?php if($_SESSION['usuario']['permissoes']['criar usuario']):?>
@@ -92,8 +92,8 @@
                                 echo "<p>".$amz['user_name']."</p>";
                                 echo "<p>".$amz['user_status']."</p>";
                                 if($_SESSION['usuario']['permissoes']['gerenciar usuarios']){
-                                    echo "<form action='painelUserGerenciar.php' method='POST'>";
-                                    echo "<button type='submit' name='enviar' id='buttonEdit'>GERENCIAR</button>";
+                                    echo "<form action='gerenciarUsuarios.php' method='POST'>";
+                                    echo "<button type='submit' name='enviar' id='buttonEdit'><i class='fa-solid fa-gear'></i></button>";
                                     echo "<input readonly type='hidden' name='id_user' value='".$amz['user_id']."'>";
                                     echo "</form>";
                                 }
