@@ -78,7 +78,7 @@
                                 $busca = '';
                             }
 
-                            $sql = "SELECT * FROM usuarios WHERE user_name LIKE '%$busca%' OR user_status LIKE '$busca'";
+                            $sql = "SELECT * FROM usuarios WHERE user_name LIKE '%$busca%' OR user_status LIKE '%$busca%'";
 
                             $resultado = mysqli_query($conexao, $sql);
                             $linhas = mysqli_num_rows($resultado);

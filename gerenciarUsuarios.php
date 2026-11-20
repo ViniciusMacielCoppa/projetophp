@@ -85,7 +85,7 @@
             <h3>Deseja resetar a senha?</h3>
             <i class="fa-solid fa-xmark" id="fechar1"></i>
             <p>Ao resetar a senha, o usuário deverá acessar sua conta com a nova senha "123456" e em seguida o mesmo será direcionado para alterar sua senha.</p>
-            <form action="form_alteracao_senha" id="form_senha" method="POST">
+            <form action="gerenciar_senha.php" id="form_senha" method="POST">
                 <button type="submit" name="change_password" id="btnsenha">Resetar Senha</button>
                 <input readonly type='hidden' name='id_user' value="<?= $amz['user_id'] ?>">
             </form>
@@ -96,7 +96,7 @@
             <h3>Deseja deletar este usuário?</h3>
             <i class="fa-solid fa-xmark" id="fechar2"></i>
             <p>Ao deletar este usuário, ele será totalmente apagado. Você tem certeza disso?</p>
-            <form action="form_delete_user" id="form_delete" method="POST">
+            <form action="gerenciar_delete.php" id="form_delete" method="POST">
                 <input readonly type='hidden' name='id_user' value="<?= $amz['user_id'] ?>">
                 <button type="submit" name="delet_user" id="btndeletar">Remover</button>
             </form>
