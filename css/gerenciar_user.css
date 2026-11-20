@@ -13,6 +13,10 @@
 
     gap: 10px;
     overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 
@@ -62,7 +66,6 @@ select{
     font-size: 15px;
     cursor: pointer;
     transition: 0.2s;
-    appearance: none;
 }
 select:hover{
     border-color: #777;
@@ -78,3 +81,118 @@ select option{
 
 }
 
+
+#btnsalvar{
+    background-color: #2e55c0;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 30px;
+    font-weight: 800;
+    transition: all 0.2s;
+}
+#btnsalvar:hover{
+    background-color: #2248b1;
+
+}
+
+
+#btnsenha{
+    background-color: #b18b22;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 30px;
+    font-weight: 800;
+    transition: all 0.2s;
+}
+#btnsenha:hover{
+    background-color: #99781c;
+
+}
+
+
+#container_buttons{
+    display: flex;
+    gap: 10px;
+}
+
+
+#btndeletar{
+    background-color: #b12c22;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 30px;
+    font-weight: 800;
+    transition: all 0.2s;
+}
+#btndeletar:hover{
+    background-color: #912119;
+}
+
+
+
+.aparecer_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.sumir_div{
+    display: none;
+}
+
+
+#reset_senha_div{
+    background: rgba(0, 0, 0, 0.171);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100vh;
+}
+
+
+#div_all{
+    width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    background-color: #1E1E1E;
+    padding: 20px;
+    border: 5px solid #2c2c2c;
+    border-radius: 7px;
+    position: absolute;
+}
+#div_all form{
+    width: 100%;
+}
+#div_all form button{
+    width: 100%;
+}
+
+#fechar1{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+
+    color: red;
+}
+#fechar2{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+
+    color: red;
+}
+
+
+#delete_div{
+       background: rgba(0, 0, 0, 0.171);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100vh; 
+}

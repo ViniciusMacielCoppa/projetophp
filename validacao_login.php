@@ -29,7 +29,8 @@
                         'criar usuario' => true,
                         'apagar noticias' => true,
                         'criar noticias' => true,
-                        'gerenciar usuarios' => true
+                        'gerenciar usuarios' => true,
+                        'deletar user' => true
                     ];
 
                 }
@@ -39,7 +40,8 @@
                         'criar usuario' => false,
                         'apagar noticias' => true,
                         'criar noticias' => true,
-                        'gerenciar usuarios' => false
+                        'gerenciar usuarios' => false,
+                        'deletar user' => false
                     ];
                 }
                 elseif($amz['user_status'] == 'Staff'){
@@ -48,7 +50,8 @@
                         'criar usuario' => false,
                         'apagar noticias' => true,
                         'criar noticias' => true,
-                        'gerenciar usuarios' => true
+                        'gerenciar usuarios' => true,
+                        'deletar user' => false
                     ];
                 }
                 else{
@@ -56,7 +59,8 @@
                     'criar usuario' => false,
                     'apagar noticias' => false,
                     'criar noticias' => false,
-                    'gerenciar usuarios' => false
+                    'gerenciar usuarios' => false,
+                    'deletar user' => false
                     ];
                 }
 

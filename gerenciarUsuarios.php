@@ -60,20 +60,74 @@
                     $resultado = mysqli_query($conexao, $sql);
                     $amz = mysqli_fetch_array($resultado);
                 ?>
-                <form action="" id="form_alteracao">
+                <form action="gerenciar_mudancas.php" id="form_alteracao" method="POST">
                     <input type="text" name="changename" value="<?= $amz['user_name'] ?>" placeholder="Usuário: <?= $amz['user_name']?>">
                     <select name="status">
                         <option value="Ceo" <?= $amz['user_status'] == "Ceo" ? "selected" : "" ?>>Ceo</option>
                         <option value="Jornalista" <?= $amz['user_status'] == "Jornalista" ? "selected" : "" ?>>Jornalista</option>
                         <option value="Staff" <?= $amz['user_status'] == "Staff" ? "selected" : "" ?>>Staff</option>
                     </select>
-                    <button type="submit" name="save">Salvar Alterações</button>
+                    <input readonly type='hidden' name='id_user' value="<?= $amz['user_id'] ?>">
+                    <button type="submit" name="save" id="btnsalvar">Salvar Alterações</button>
                 </form>
+                <div id="container_buttons">
+                    <button type="text" id="btnsenha">Resetar Senha</button>
+                    <?php if($_SESSION['usuario']['permissoes']['deletar user']): ?>
+                        <button type="text" id="btndeletar">Remover</button>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </main>
+    
+    <div id="reset_senha_div" class="sumir_div">
+        <div id="div_all">
+            <h3>Deseja resetar a senha?</h3>
+            <i class="fa-solid fa-xmark" id="fechar1"></i>
+            <p>Ao resetar a senha, o usuário deverá acessar sua conta com a nova senha "123456" e em seguida o mesmo será direcionado para alterar sua senha.</p>
+            <form action="form_alteracao_senha" id="form_senha" method="POST">
+                <button type="submit" name="change_password" id="btnsenha">Resetar Senha</button>
+                <input readonly type='hidden' name='id_user' value="<?= $amz['user_id'] ?>">
+            </form>
+        </div>
+    </div>
+    <div id="delete_div" class="sumir_div">
+        <div id="div_all">
+            <h3>Deseja deletar este usuário?</h3>
+            <i class="fa-solid fa-xmark" id="fechar2"></i>
+            <p>Ao deletar este usuário, ele será totalmente apagado. Você tem certeza disso?</p>
+            <form action="form_delete_user" id="form_delete" method="POST">
+                <input readonly type='hidden' name='id_user' value="<?= $amz['user_id'] ?>">
+                <button type="submit" name="delet_user" id="btndeletar">Remover</button>
+            </form>
+        </div>
+    </div>
 
+    <script>
+        const btn_reset_senha = document.getElementById("btnsenha");
+        const btn_fechar1 = document.getElementById("fechar1");
+        
+        btn_reset_senha.addEventListener("click", () => {
+            document.getElementById("reset_senha_div").classList.remove("sumir_div");   
+            document.getElementById("reset_senha_div").classList.add("aparecer_div");      
+        })
+        btn_fechar1.addEventListener("click", () => {
+            document.getElementById("reset_senha_div").classList.remove("aparecer_div");   
+            document.getElementById("reset_senha_div").classList.add("sumir_div");      
+        })
 
+        const btn_delete_user = document.getElementById("btndeletar");
+        const btn_fechar2 = document.getElementById("fechar2");
+        
+        btn_delete_user.addEventListener("click", () => {
+            document.getElementById("delete_div").classList.remove("sumir_div");   
+            document.getElementById("delete_div").classList.add("aparecer_div"); 
+        })
+        btn_fechar2.addEventListener("click", () => {
+            document.getElementById("delete_div").classList.remove("aparecer_div");   
+            document.getElementById("delete_div").classList.add("sumir_div");      
+        })
+    </script>
 
 </body>
 </html>
