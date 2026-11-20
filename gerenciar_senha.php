@@ -14,9 +14,6 @@
         header("location: login.php");
         exit();
     }
-?>
-
-<?php 
 
     if(isset($_POST['change_password'])){
         $id_change = $_POST['id_user'];

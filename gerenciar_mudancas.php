@@ -14,9 +14,6 @@
         header("location: login.php");
         exit();
     }
-?>
-
-<?php 
 
     if(isset($_POST['save'])){
         $nome_change = trim($_POST['changename']);
