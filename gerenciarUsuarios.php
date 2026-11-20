@@ -50,9 +50,25 @@
         </nav>
 
         <div id="divmain">
-            <h1>Usuários</h1>
+            <h1>Gerenciar Usuário</h1>
             <div id="container">
-                aqui
+                <?php 
+                    $id_user = $_POST['id_user'];
+
+                    $sql = "SELECT * FROM usuarios WHERE user_id = '$id_user'";
+
+                    $resultado = mysqli_query($conexao, $sql);
+                    $amz = mysqli_fetch_array($resultado);
+                ?>
+                <form action="" id="form_alteracao">
+                    <input type="text" name="changename" value="<?= $amz['user_name'] ?>" placeholder="Usuário: <?= $amz['user_name']?>">
+                    <select name="status">
+                        <option value="Ceo" <?= $amz['user_status'] == "Ceo" ? "selected" : "" ?>>Ceo</option>
+                        <option value="Jornalista" <?= $amz['user_status'] == "Jornalista" ? "selected" : "" ?>>Jornalista</option>
+                        <option value="Staff" <?= $amz['user_status'] == "Staff" ? "selected" : "" ?>>Staff</option>
+                    </select>
+                    <button type="submit" name="save">Salvar Alterações</button>
+                </form>
             </div>
         </div>
     </main>
