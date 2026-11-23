@@ -12,64 +12,68 @@
 
             $resultado = mysqli_query($conexao, $sql);
             $row = mysqli_num_rows($resultado);
+            $amz = mysqli_fetch_assoc($resultado);
 
-            if($row > 0){
-                $amz = mysqli_fetch_assoc($resultado);
+            if($amz['user_ativo'] == 1){
 
-                $_SESSION['usuario'] = [
-                    'nome' => $amz['user_name'],
-                    'status' => $amz['user_status'],
-                    'id' => $amz['user_id'],
-                    'autenticado' => true
-                ];
-
-                if($amz['user_status'] == 'Ceo'){
-                    $_SESSION['usuario']['permissoes'] = [
-                        //por as permições de CEO
-                        'criar usuario' => true,
-                        'apagar noticias' => true,
-                        'criar noticias' => true,
-                        'gerenciar usuarios' => true,
-                        'deletar user' => true
+                if($row > 0){
+                    $_SESSION['usuario'] = [
+                        'nome' => $amz['user_name'],
+                        'status' => $amz['user_status'],
+                        'id' => $amz['user_id'],
+                        'autenticado' => true
                     ];
 
-                }
-                elseif($amz['user_status'] == 'Jornalista'){
-                    $_SESSION['usuario']['permissoes'] = [
-                        //por as permições de JORNALISTA
+                    if($amz['user_status'] == 'Ceo'){
+                        $_SESSION['usuario']['permissoes'] = [
+                            //por as permições de CEO
+                            'criar usuario' => true,
+                            'apagar noticias' => true,
+                            'criar noticias' => true,
+                            'gerenciar usuarios' => true,
+                            'deletar user' => true
+                        ];
+                    }
+                    elseif($amz['user_status'] == 'Jornalista'){
+                        $_SESSION['usuario']['permissoes'] = [
+                            //por as permições de JORNALISTA
+                            'criar usuario' => false,
+                            'apagar noticias' => true,
+                            'criar noticias' => true,
+                            'gerenciar usuarios' => false,
+                            'deletar user' => false
+                        ];
+                    }
+                    elseif($amz['user_status'] == 'Staff'){
+                        $_SESSION['usuario']['permissoes'] = [
+                            //por as permições de STAFF
+                            'criar usuario' => false,
+                            'apagar noticias' => true,
+                            'criar noticias' => true,
+                            'gerenciar usuarios' => true,
+                            'deletar user' => false
+                        ];
+                    }
+                    else{
+                        $_SESSION['usuario']['permissoes'] = [
                         'criar usuario' => false,
-                        'apagar noticias' => true,
-                        'criar noticias' => true,
+                        'apagar noticias' => false,
+                        'criar noticias' => false,
                         'gerenciar usuarios' => false,
                         'deletar user' => false
-                    ];
-                }
-                elseif($amz['user_status'] == 'Staff'){
-                    $_SESSION['usuario']['permissoes'] = [
-                        //por as permições de STAFF
-                        'criar usuario' => false,
-                        'apagar noticias' => true,
-                        'criar noticias' => true,
-                        'gerenciar usuarios' => true,
-                        'deletar user' => false
-                    ];
-                }
-                else{
-                    $_SESSION['usuario']['permissoes'] = [
-                    'criar usuario' => false,
-                    'apagar noticias' => false,
-                    'criar noticias' => false,
-                    'gerenciar usuarios' => false,
-                    'deletar user' => false
-                    ];
-                }
+                        ];
+                    }
 
-                header("location: painelHome.php");
-                exit();
+                    header("location: painelHome.php");
+                    exit(); 
+                }else{
+                    echo "n deu";
+                    $_SESSION['usuario']['autenticado'] = false;
+                    header("location: login.php");
+                }
             }else{
-                echo "n deu";
-                $_SESSION['usuario']['autenticado'] = false;
                 header("location: login.php");
+                exit();
             }
         }else{
             echo "precisa digitar um usuario";

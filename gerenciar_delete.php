@@ -18,7 +18,7 @@
     if(isset($_POST['delet_user'])){
         $id_change = $_POST['id_user'];
 
-        $sql = "DELETE FROM usuarios WHERE user_id = '$id_change'";
+        $sql = "UPDATE usuarios SET user_ativo = FALSE WHERE user_id = '$id_change'";
         $resultado = mysqli_query($conexao, $sql);
         header("location: painelUsuarios.php");
     }else{

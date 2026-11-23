@@ -72,7 +72,7 @@
             $status = $_POST['status'];
 
             if(!empty($nome)){
-                $sql = "INSERT INTO usuarios (user_name, user_senha, user_status) VALUES ('$nome', '123456', '$status')";
+                $sql = "INSERT INTO usuarios (user_name, user_senha, user_status, user_ativo) VALUES ('$nome', '123456', '$status', TRUE)";
                 $resultado = mysqli_query($conexao, $sql);
                 mysqli_close($conexao);
                 echo "<script>
