@@ -27,6 +27,12 @@
 
             if($amz && password_verify($senha, $amz['user_senha'])){
 
+                // NECESSÁRIO CRIAR PAGINA DE CRIAÇÃO DE SENHA NOVA E DEPOIS REDIRECIONAR PRA PAGINA DE LOGIN DNV
+                // if($senha === '123456' AND $amz['user_ativo'] == 1){
+                //     header("location: trocarsenha.php");
+                //     exit();
+                // }
+
                 if($amz['user_ativo'] == 1){
 
                     $_SESSION['usuario'] = [
