@@ -75,8 +75,12 @@
                 $senha = '123456';
                 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-                $sql = "INSERT INTO usuarios (user_name, user_senha, user_status, user_ativo) VALUES ('$nome', '$senha_hash', '$status', TRUE)";
-                $resultado = mysqli_query($conexao, $sql);
+                $sql = "INSERT INTO usuarios (user_name, user_senha, user_status, user_ativo) VALUES (?, ?, ?, TRUE)";
+
+                $stmt = mysqli_prepare($conexao, $sql);
+                mysqli_stmt_bind_param($stmt, "sss", $nome, $senha_hash, $status);
+                mysqli_stmt_execute($stmt);
+                
                 mysqli_close($conexao);
                 echo "<script>
                     alert('Usuário Cadastrado');

@@ -78,12 +78,14 @@
                                 $busca = '';
                             }
 
-                            $sql = "SELECT * FROM usuarios WHERE user_name LIKE '%$busca%' OR user_status LIKE '%$busca%'";
+                            $sql = "SELECT * FROM usuarios WHERE user_name LIKE ? OR user_status LIKE ?";
 
-                            $resultado = mysqli_query($conexao, $sql);
+                            $busca_sql = "%$busca%";
+                            $stmt = mysqli_prepare($conexao, $sql);
+                            mysqli_stmt_bind_param($stmt, "ss", $busca_sql, $busca_sql);
+                            mysqli_stmt_execute($stmt);
+                            $resultado = mysqli_stmt_get_result($stmt);
                             $linhas = mysqli_num_rows($resultado);
-
-
 
                             for($i=0; $i<$linhas; $i++){
                                 $amz = mysqli_fetch_array($resultado);

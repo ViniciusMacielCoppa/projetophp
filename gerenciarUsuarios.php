@@ -55,10 +55,15 @@
                 <?php 
                     $id_user = $_POST['id_user'];
 
-                    $sql = "SELECT * FROM usuarios WHERE user_id = '$id_user'";
+                    $sql = "SELECT * FROM usuarios WHERE user_id = ?";
 
-                    $resultado = mysqli_query($conexao, $sql);
+                    $stmt = mysqli_prepare($conexao, $sql);
+                    mysqli_stmt_bind_param($stmt, "i", $id_user);
+                    mysqli_stmt_execute($stmt);
+
+                    $resultado = mysqli_stmt_get_result($stmt);
                     $amz = mysqli_fetch_array($resultado);
+                    
                 ?>
                 <form action="gerenciar_mudancas.php" id="form_alteracao" method="POST">
                     <input type="text" name="changename" value="<?= $amz['user_name'] ?>" placeholder="Usuário: <?= $amz['user_name']?>">
